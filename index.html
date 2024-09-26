@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | LuckyReelTrio</title>
     <style>
-      /* Resetting body and html */
+      /* Ensure full-screen display */
       html, body {
         margin: 0;
         padding: 0;
@@ -13,7 +13,7 @@
         overflow: hidden;
       }
       
-      /* Set canvas to take full-screen */
+      /* Set the canvas to take the full screen */
       #unity-canvas {
         width: 100vw;
         height: 100vh;
@@ -32,13 +32,16 @@
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
+        
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.position = "fixed";
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/lockyReelTrioWeb.data.br",
-        frameworkUrl: "Build/lockyReelTrioWeb.framework.js.br",
-        codeUrl: "Build/lockyReelTrioWeb.wasm.br",
+        dataUrl: "Build/lockyReelTrioWeb.data",
+        frameworkUrl: "Build/lockyReelTrioWeb.framework.js",
+        codeUrl: "Build/lockyReelTrioWeb.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "luckyreeltrio",
         productName: "LuckyReelTrio",
